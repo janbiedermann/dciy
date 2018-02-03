@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'mini_racer'
 
 # This App
 gem 'dotenv-rails'
