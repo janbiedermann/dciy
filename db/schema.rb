@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140106022030) do
 
-  create_table "builds", force: true do |t|
+  create_table "builds", force: :cascade do |t|
     t.integer  "project_id"
     t.datetime "started_at"
     t.datetime "completed_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140106022030) do
     t.string   "branch"
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "repo"
     t.datetime "created_at"
     t.datetime "updated_at"
