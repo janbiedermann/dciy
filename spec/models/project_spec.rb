@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Project do
   let(:project) { Project.create! repo: 'cobyism/dciy.git' }

@@ -1,6 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe CommitStatus do
+  fixtures :builds
+  
   let(:resource) { double("resource") }
   let(:user) { "fakey" }
   let(:token) { "ABCDEF123" }

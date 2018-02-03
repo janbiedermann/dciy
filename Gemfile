@@ -21,4 +21,5 @@ gem 'toml'
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end

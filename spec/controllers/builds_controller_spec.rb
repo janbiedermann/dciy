@@ -1,6 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe BuildsController do
+  fixtures :builds
+  fixtures :projects
+
   let(:project) { projects(:one) }
   let(:build) { builds(:one) }
 
@@ -24,7 +27,7 @@ describe BuildsController do
     expect(BuildWorker).to receive(:perform_async)
 
     expect do
-      post :create, build: { project_id: project, branch: 'some-branch' }
+      post :create, params: { build: { project_id: project, branch: 'some-branch' } }
     end.to change { Build.count }.by(1)
 
     b = assigns :build
@@ -37,14 +40,14 @@ describe BuildsController do
   end
 
   it "should show build" do
-    get :show, id: build
+    get :show, params: { id: build }
 
     expect(assigns :build).to eq(build)
     expect(response).to be_success
   end
 
   it "should destroy build" do
-    expect { delete :destroy, id: build.id }.to change { Build.count }.by(-1)
+    expect { delete :destroy, params: { id: build.id } }.to change { Build.count }.by(-1)
 
     expect(response).to redirect_to(builds_path)
   end
