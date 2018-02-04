@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140106022030) do
     t.string   "repo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "github_host", default: "github.com"
+    t.string   "github_host"
   end
 
 end
