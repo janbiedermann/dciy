@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'mini_racer'
+gem 'mysql2'
 
 # This App
 gem 'dotenv-rails'
