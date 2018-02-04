@@ -1,2 +1,2 @@
 web: bundle exec rails server --port 6161
-worker: bundle exec sidekiq
+worker: bundle exec sidekiq -L log/sidekiq.log
