@@ -1,6 +1,7 @@
 <div class="page-header">
   <div class="page-actions">
     <%= link_to 'New Build', @project ? new_project_build_path(@project) : new_build_path, :class => "button" %>
+    <br>
     <% if @project && @project.default_branch %>
       <%= form_for(@build) do |f| %>
         <%= f.hidden_field :project_id %>
