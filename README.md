@@ -43,7 +43,7 @@ still important to be aware of what code you’re running on your machine.
 
 ## Getting DCIY running
 
-Run these commands from your terminal to get set up for hacking on this locally:
+Install redis for sidekiq and then run these commands from your terminal to get set up for hacking on this locally:
 
 ```sh
 git clone https://github.com/cobyism/dciy
@@ -54,6 +54,9 @@ script/server
 The [`script/server`](./script/server) command should do all the bootstrapping and
 process starting necessary, and should give you a DCIY server running locally on
 at the following address: [`http://localhost:6161`](http://localhost:6161).
+
+Once set up, you may run DCIY wiht `foreman start`, which will start the rails application and the sidekiq queue.
+By default 4 jobs are un in parrallel, you may configure this in config/sidekiq.yml.
 
 ## Using DCIY
 
