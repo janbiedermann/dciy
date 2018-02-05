@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'mini_racer'
 gem 'mysql2'
+gem 'puma'
 
 # This App
 gem 'dotenv-rails'
