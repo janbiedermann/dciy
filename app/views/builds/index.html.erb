@@ -34,7 +34,7 @@
       </div>
       <div class="build-info">
         <div class="build-commit">
-          <%= build.project.repo %> @ <%= build.branch %> @ <%= build.sha[0..6] %>
+          <%= build.project.repo %> @ <%= build.branch %> @ <%= build.sha[0..6] if build.sha %>
         </div>
         <div class="build-status"><%= build.status_phrase %></div>
       </div>
