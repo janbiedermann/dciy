@@ -98,6 +98,7 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     parslet (1.8.1)
+    puma (3.11.2)
     rack (2.0.4)
     rack-protection (2.0.0)
       rack
@@ -219,6 +220,7 @@ DEPENDENCIES
   jquery-rails
   mini_racer
   mysql2
+  puma
   rails
   rails-controller-testing
   rest-client
