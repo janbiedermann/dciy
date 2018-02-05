@@ -9,7 +9,9 @@
         <%= f.submit "Punch it default way!", class: "button button-primary" %>
       <% end %>
     <% elsif !@project %>
-      <form method="post" action="<%= all_builds_path %>"><input type="submit" class="button button-primary" value="Build All"></form>
+      <%= form_tag(all_builds_path, method="post") %>
+        <input type="submit" class="button button-primary" value="Build All"></form>
+      </form>
     <% end %>
   </div>
   <div class="page-title">
