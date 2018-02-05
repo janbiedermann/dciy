@@ -24,6 +24,7 @@
       <span class="description">https://<%= @hosts.first %>/</span>
     <% end %>
     <%= f.text_field :repo, :placeholder => "owner/repository" %>
+    <%= f.text_field :default_branch, :placeholder => "default branch to build" %>
   </div>
   <div class="actions">
     <%= f.submit class: "button" %>
