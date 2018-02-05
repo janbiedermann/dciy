@@ -1,4 +1,11 @@
 <div class="page-header">
+  <div class="page-actions">
+    <%= form_for(@build) do |f| %>
+      <%= f.hidden_field :project_id %>
+      <%= f.hidden_field :branch %>
+      <%= f.submit "Punch it again!", class: "button button-primary" %>
+    <% end %>
+  </div>
   <div class="page-title">
     <h1><span><%= @build.project.repo %></span> @ <%= @build.branch %></h1>
   </div>
