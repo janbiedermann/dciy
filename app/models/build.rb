@@ -36,9 +36,9 @@ class Build < ActiveRecord::Base
     when :succeeded, :failed
       d = duration
       if d.blank?
-        "#{status_word} instantly"
+        "started at #{started_at}, #{status_word} instantly"
       else
-        "#{status_word} in #{duration}"
+        "started at #{started_at}, #{status_word} in #{duration}"
       end
     when :pending
       "Build started #{distance_of_time_in_words_to_now(started_at, :include_seconds => true)} ago"
