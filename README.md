@@ -58,6 +58,14 @@ at the following address: [`http://localhost:6161`](http://localhost:6161).
 Once set up, you may run DCIY wiht `foreman start`, which will start the rails application and the sidekiq queue.
 By default 4 jobs are un in parrallel, you may configure this in config/sidekiq.yml.
 
+### Testing Ruby-Hyperloop
+
+A seed for projects from Rub-Hyperloop is available, just do:
+```
+RAILS_ENV=production bundle exec rails db:seed
+```
+Then visit [`http://localhost:6161`](http://localhost:6161), 'All Projects' -> 'Build all' ... for a green view ;).
+
 ## Using DCIY
 
 ### Adding a project
