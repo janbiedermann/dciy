@@ -21,7 +21,10 @@ class BuildsController < ApplicationController
   # GET /builds/new
   def new
     @build = Build.new branch: "master"
-    @build.project = Project.find params[:project_id] if params[:project_id]
+    if params[:project_id]
+      @build.project = Project.find params[:project_id]
+      @build.branch = @build.project&.default_branch
+    end
   end
 
   # POST /builds
@@ -49,6 +52,27 @@ class BuildsController < ApplicationController
       format.html { redirect_to builds_url }
       format.json { head :no_content }
     end
+  end
+
+  def all
+    started_builds = []
+    failed_builds = []
+    Project.all.order(:repo).each do |project|
+      if project.default_branch
+        build = Build.new(project_id: project.id, branch: project.default_branch)
+        if build.save
+          BuildWorker.perform_async(build.id) 
+          started_builds << "#{project.repo} - #{project.default_branch}"
+        else
+          failed_builds << "#{project.repo} - #{project.default_branch}"
+        end
+      else
+        failed_builds << "#{project.repo} - No default branch specified"
+      end
+    end
+    notice = "Builds started:<br>#{started_builds.join('<br>')}"
+    notice << "<br>Builds failed to start:<br>#{failed_builds.join('<br>')}" unless failed_builds.empty?
+    redirect_to root_path, notice: notice
   end
 
   private
