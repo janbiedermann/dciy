@@ -6,6 +6,9 @@ class BuildsController < ApplicationController
   def index
     if params[:project_id].present?
       @project = Project.find(params[:project_id])
+      if @project && @project.default_branch
+        @build = Build.new(project_id: @project.id, branch: @project.default_branch)
+      end
       @builds = @project.builds
     else
       @builds = Build.all

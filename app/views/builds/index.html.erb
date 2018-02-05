@@ -1,7 +1,15 @@
 <div class="page-header">
   <div class="page-actions">
     <%= link_to 'New Build', @project ? new_project_build_path(@project) : new_build_path, :class => "button" %>
-    <form action="<%= all_builds_path %>"><input type="submit" class="button" value="Build All"></form>
+    <% if @project && @project.default_branch %>
+      <%= form_for(@build) do |f| %>
+        <%= f.hidden_field :project_id %>
+        <%= f.hidden_field :branch %>
+        <%= f.submit "Punch it default way!", class: "button button-primary" %>
+      <% end %>
+    <% else %>
+      <form action="<%= all_builds_path %>"><input type="submit" class="button" value="Build All"></form>
+    <% end %>
   </div>
   <div class="page-title">
     <% if @project %>
