@@ -1,6 +1,6 @@
 <div class="page-header">
   <div class="page-actions">
-    <%= form_for(@build, url: builds_path) do |f| %>
+    <%= form_for(@new_build) do |f| %>
       <%= f.hidden_field :project_id %>
       <%= f.hidden_field :branch %>
       <%= f.submit "Punch it again!", class: "button button-primary" %>

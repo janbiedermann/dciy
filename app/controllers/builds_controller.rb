@@ -19,6 +19,7 @@ class BuildsController < ApplicationController
   # GET /builds/1
   # GET /builds/1.json
   def show
+    @new_build = Build.new(project_id: @build.project_id, branch: @build.branch)
   end
 
   # GET /builds/new
